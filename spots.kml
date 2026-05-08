@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>北海道おすすめスポット</name>
+    <description>個人的な北海道おすすめ23スポット</description>
+
+    <!-- ===== 富良野・美瑛 ===== -->
+    <Folder>
+      <name>富良野・美瑛</name>
+      <Placemark>
+        <name>cafe ゴリョウ（cafe Goryo）</name>
+        <description>カフェ｜美瑛</description>
+        <Point><coordinates>142.3748016,43.300546,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>白金 青い池</name>
+        <description>景色・自然｜美瑛</description>
+        <Point><coordinates>142.6142144,43.4934738,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>あるうのぱいん</name>
+        <description>グルメ｜富良野</description>
+        <Point><coordinates>142.4511368,43.5988925,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>カレーのふらのや</name>
+        <description>グルメ｜富良野</description>
+        <Point><coordinates>142.3825976,43.3429869,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- ===== 札幌 ===== -->
+    <Folder>
+      <name>札幌</name>
+      <Placemark>
+        <name>円山ぱんけーき</name>
+        <description>カフェ｜札幌・円山</description>
+        <Point><coordinates>141.3282149,43.0528457,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>cafe Rain × bistro Dim.</name>
+        <description>カフェ｜札幌</description>
+        <Point><coordinates>141.3277523,43.0529674,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>ランプライトブックスカフェ 札幌</name>
+        <description>カフェ｜札幌・大通</description>
+        <Point><coordinates>141.3471523,43.0565585,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Bunny's Bar MILLION ススキノ南4条通店</name>
+        <description>バー｜札幌・すすきの</description>
+        <Point><coordinates>141.3544574,43.0554178,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>63 ロクサン ジンギスカン</name>
+        <description>グルメ｜札幌</description>
+        <Point><coordinates>141.3546332,43.053933,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>森彦</name>
+        <description>カフェ｜札幌・円山</description>
+        <Point><coordinates>141.3186089,43.0533077,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>花論珈琲茶房 藻岩本店</name>
+        <description>カフェ｜札幌・藻岩</description>
+        <Point><coordinates>141.3400669,43.009295,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>クラノス（kuraノsu）</name>
+        <description>カフェ｜札幌</description>
+        <Point><coordinates>141.1251063,43.1545136,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>野外博物館 北海道開拓の村</name>
+        <description>観光｜札幌・野幌</description>
+        <Point><coordinates>141.4969955,43.0482239,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- ===== 小樽 ===== -->
+    <Folder>
+      <name>小樽</name>
+      <Placemark>
+        <name>海賊船</name>
+        <description>観光｜小樽</description>
+        <Point><coordinates>141.159604,43.143942,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>北一硝子 北一ホール</name>
+        <description>観光｜小樽・堺町</description>
+        <Point><coordinates>141.007334,43.1922675,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>カフェ 崖の上</name>
+        <description>カフェ｜小樽</description>
+        <Point><coordinates>141.1611121,42.9729715,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- ===== 函館 ===== -->
+    <Folder>
+      <name>函館</name>
+      <Placemark>
+        <name>函館ハリストス正教会</name>
+        <description>観光｜函館・元町</description>
+        <Point><coordinates>140.7122004,41.7627913,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>ラッキーピエロ ベイエリア本店</name>
+        <description>グルメ｜函館・ベイエリア</description>
+        <Point><coordinates>140.7149328,41.765756,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>ティーショップ 夕日</name>
+        <description>カフェ｜函館</description>
+        <Point><coordinates>140.6954174,41.7664207,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>城岱牧場 展望台</name>
+        <description>景色・自然｜七飯</description>
+        <Point><coordinates>140.7119213,41.9224375,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- ===== その他 ===== -->
+    <Folder>
+      <name>その他エリア</name>
+      <Placemark>
+        <name>神威岩</name>
+        <description>景色・自然｜積丹</description>
+        <Point><coordinates>140.3428575,43.3356766,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>ウポポイ</name>
+        <description>観光｜白老</description>
+        <Point><coordinates>141.3635063,42.5577892,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>六花文庫</name>
+        <description>ショッピング｜中札内</description>
+        <Point><coordinates>141.3537218,42.9970609,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+  </Document>
+</kml>
