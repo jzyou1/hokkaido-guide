@@ -3,682 +3,984 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>北海道 おすすめスポット</title>
+  <title>HOKKAIDO PLACES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #111;
+      --gray: #666;
+      --light: #f5f5f3;
+      --border: #e0e0e0;
+      --green: #1a4a3a;
+    }
 
     body {
-      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-      background: #f5f3ee;
-      color: #2c2c2c;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fff;
+      color: var(--black);
+      font-size: 14px;
     }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 56px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+    nav a {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--black); }
 
     /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(160deg, #1a4a3a 0%, #2d7a5a 60%, #3a9970 100%);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px 70px;
+      margin-top: 56px;
+      height: calc(100vh - 56px);
+      min-height: 500px;
+      max-height: 700px;
+      background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3a 40%, #4a8a5a 70%, #6aaa7a 100%);
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: flex-end;
     }
-    .hero::before {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%),
+        linear-gradient(135deg, #1a3a2a 0%, #3d7a50 50%, #6aaa7a 100%);
+    }
+    /* 道路のライン装飾 */
+    .hero-bg::after {
       content: '';
       position: absolute;
-      top: -40px; right: -40px;
-      width: 300px; height: 300px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 50%;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3));
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -60px;
-      width: 400px; height: 400px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 50%;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 48px 48px 56px;
+      color: #fff;
+      max-width: 700px;
     }
-    .hero-label {
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 18px;
+    .hero-content h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 72px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-    .hero-en {
-      font-size: 14px;
-      letter-spacing: 6px;
-      opacity: 0.6;
+    .hero-content p {
+      font-size: 13px;
+      opacity: 0.8;
+      line-height: 1.8;
       margin-bottom: 28px;
     }
-    .hero-count {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 40px;
-      padding: 8px 22px;
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    /* ===== NAV ===== */
-    .area-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 20px 16px;
-      background: #fff;
-      border-bottom: 1px solid #e8e4dc;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .area-nav a {
-      text-decoration: none;
-      color: #555;
-      font-size: 13px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      border: 1px solid #ddd;
-      transition: all 0.2s;
-    }
-    .area-nav a:hover {
-      background: #1a4a3a;
+      font-weight: 700;
       color: #fff;
-      border-color: #1a4a3a;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      padding-bottom: 2px;
+    }
+    .hero-save {
+      position: absolute;
+      right: 48px;
+      bottom: 56px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      font-size: 11px;
+    }
+    .save-circle {
+      width: 52px; height: 52px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
 
-    /* ===== AREA SECTIONS ===== */
-    .area-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 20px 20px;
-    }
-    .area-header {
+    /* ===== AREA NAV ===== */
+    .area-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
       display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 24px;
-      padding-bottom: 14px;
-      border-bottom: 2px solid #e8e4dc;
+      gap: 0;
+      overflow-x: auto;
     }
-    .area-badge {
+    .area-nav-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 4px;
-      color: #fff;
+      color: var(--black);
+      padding: 20px 28px 20px 0;
+      white-space: nowrap;
+      border-right: 1px solid var(--border);
+      margin-right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .area-header h2 {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1a1a1a;
+    .area-nav-label span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--black);
     }
-    .area-count {
-      font-size: 12px;
-      color: #999;
+    .area-nav a {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 24px;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .area-nav a:hover { color: var(--black); border-bottom-color: var(--black); }
+    .area-nav a small {
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 400;
+    }
+    .area-nav-more {
       margin-left: auto;
+      padding: 16px 0;
+      font-size: 12px;
+      color: var(--gray);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    /* ===== CARDS ===== */
-    .card-grid {
+    /* ===== MAIN CONTENT ===== */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 32px;
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .section-header p {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+    .section-title-wrap { flex: 1; }
+
+    /* ===== FILTER TABS ===== */
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      margin-top: 20px;
+    }
+    .filter-tab {
+      padding: 10px 20px;
+      font-size: 13px;
+      color: var(--gray);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+    .filter-tab.active {
+      color: var(--black);
+      border-bottom-color: var(--black);
+      font-weight: 700;
+    }
+    .filter-tab:hover { color: var(--black); }
+
+    /* ===== SPOT GRID ===== */
+    .spot-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
     }
-    .card {
-      background: #fff;
-      border-radius: 12px;
+    @media (max-width: 900px) {
+      .spot-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .spot-grid { grid-template-columns: 1fr; }
+      .hero-save { display: none; }
+    }
+
+    .spot-card {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .spot-card:hover { opacity: 0.85; }
+    .spot-card.hidden { display: none; }
+
+    .spot-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--light);
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    .card-photo {
-      height: 140px;
-      background: #e8e4dc;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 36px;
-      color: #bbb;
+      font-size: 48px;
+      margin-bottom: 12px;
       position: relative;
-      overflow: hidden;
     }
-    .card-photo img {
-      width: 100%;
-      height: 100%;
+    .spot-photo img {
+      width: 100%; height: 100%;
       object-fit: cover;
     }
-    .card-body {
-      padding: 16px;
-    }
-    .card-meta {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-    .cat-badge {
+    .spot-area-tag {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
       font-size: 10px;
-      font-weight: 700;
       padding: 3px 8px;
-      border-radius: 4px;
+      border-radius: 2px;
       letter-spacing: 0.5px;
     }
-    .cat-cafe      { background: #fff3e0; color: #e65100; }
-    .cat-gourmet   { background: #fce4ec; color: #c62828; }
-    .cat-sightseeing { background: #e3f2fd; color: #1565c0; }
-    .cat-nature    { background: #e8f5e9; color: #2e7d32; }
-    .cat-bar       { background: #ede7f6; color: #4527a0; }
-    .cat-shopping  { background: #fff8e1; color: #f57f17; }
-
-    .card h3 {
+    .spot-card-body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .spot-card-text { flex: 1; }
+    .spot-card h3 {
       font-size: 15px;
       font-weight: 700;
+      margin-bottom: 4px;
       line-height: 1.4;
+    }
+    .spot-card .spot-sub {
+      font-size: 11px;
+      color: var(--gray);
       margin-bottom: 6px;
-      color: #1a1a1a;
     }
-    .card-comment {
+    .spot-card .spot-desc {
       font-size: 12px;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      min-height: 20px;
+      color: var(--gray);
+      line-height: 1.7;
     }
-    .map-btn {
-      display: inline-flex;
+    .maps-btn {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 5px;
-      text-decoration: none;
-      color: #1a4a3a;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 6px;
-      border: 1.5px solid #1a4a3a;
-      transition: all 0.2s;
+      gap: 3px;
+      font-size: 10px;
+      color: var(--gray);
+      flex-shrink: 0;
+      padding: 4px;
+      transition: color 0.2s;
     }
-    .map-btn:hover {
-      background: #1a4a3a;
-      color: #fff;
-    }
-    .map-btn svg {
-      width: 13px; height: 13px;
+    .maps-btn:hover { color: var(--black); }
+    .maps-btn svg {
+      width: 18px; height: 18px;
       fill: currentColor;
     }
 
+    /* ===== SHOW MORE ===== */
+    .show-more-wrap {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .show-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 40px;
+      border: 1.5px solid var(--black);
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      background: none;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .show-more-btn:hover { background: var(--black); color: #fff; }
+
+    /* ===== MAP SECTION ===== */
+    .map-section {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 700px) {
+      .map-section { grid-template-columns: 1fr; }
+    }
+    .map-info {
+      padding: 40px 32px;
+      background: var(--light);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .map-info h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .map-info h3 span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      margin-bottom: 12px;
+    }
+    .map-info p {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .map-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--black);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 2px;
+      width: fit-content;
+      transition: opacity 0.2s;
+    }
+    .map-open-btn:hover { opacity: 0.8; }
+    .map-open-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .map-embed { flex: 1; }
+    .map-embed iframe { display: block; width: 100%; height: 100%; min-height: 400px; border: 0; }
+
     /* ===== FOOTER ===== */
     footer {
-      text-align: center;
-      padding: 48px 20px;
-      color: #999;
-      font-size: 12px;
-      margin-top: 40px;
-      border-top: 1px solid #e8e4dc;
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    footer strong { color: #1a4a3a; }
+    footer .logo { font-size: 11px; }
+    footer p { font-size: 11px; color: var(--gray); }
   </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <p class="hero-label">My Hokkaido Guide</p>
-  <h1>北海道</h1>
-  <p class="hero-en">HOKKAIDO · RECOMMENDED SPOTS</p>
-  <span class="hero-count">23 スポット厳選</span>
+<!-- HEADER -->
+<header>
+  <div class="logo">HOKKAIDO<br>PLACES</div>
+  <nav>
+    <a href="#spots">エリアから探す</a>
+    <a href="#spots">テーマから探す</a>
+    <a href="#map">マップ</a>
+  </nav>
 </header>
 
-<!-- NAV -->
-<nav class="area-nav">
-  <a href="#furano">富良野・美瑛</a>
-  <a href="#sapporo">札幌</a>
-  <a href="#otaru">小樽</a>
-  <a href="#hakodate">函館</a>
-  <a href="#others">その他</a>
-</nav>
-
-<main>
-
-<!-- ===== 富良野・美瑛 ===== -->
-<section class="area-section" id="furano">
-  <div class="area-header">
-    <span class="area-badge" style="background:#4caf50">富良野・美瑛</span>
-    <h2>Furano / Biei</h2>
-    <span class="area-count">4 スポット</span>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>北海道の、<br>美しい場所。</h1>
+    <p>自然、街、文化、グルメ。<br>心が動くスポットを集めました。</p>
+    <a href="#spots" class="hero-link">エリアから探す &rsaquo;</a>
   </div>
-  <div class="card-grid">
-
-    <div class="card">
-      <div class="card-photo">🌿</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>cafe ゴリョウ（cafe Goryo）</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/cafe%E3%82%B4%E3%83%AA%E3%83%A7%E3%82%A6(cafe+Goryo)/data=!4m2!3m1!1s0x5f735236f7b1b235:0x26cfb28a77d70ee4" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">💧</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-nature">景色・自然</span>
-        </div>
-        <h3>白金 青い池</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E7%99%BD%E9%87%91%E9%9D%92%E3%81%84%E6%B1%A0/data=!4m2!3m1!1s0x5f0ccc62de222a6f:0x4cd181f9f4b779e" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🍞</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-gourmet">グルメ</span>
-        </div>
-        <h3>あるうのぱいん</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%81%82%E3%82%8B%E3%81%86%E3%81%AE%E3%81%B1%E3%81%84%E3%82%93/data=!4m2!3m1!1s0x5f0cc5d22ae18b1d:0xab61be11a683a425" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🍛</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-gourmet">グルメ</span>
-        </div>
-        <h3>カレーのふらのや</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%82%AB%E3%83%AC%E3%83%BC%E3%81%AE%E3%81%B5%E3%82%89%E3%81%AE%E3%82%84/data=!4m2!3m1!1s0x5f734d66ab0bd70d:0x5244e9ad107af63f" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
+  <div class="hero-save">
+    <span style="font-size:11px;opacity:0.8">保存は</span>
+    <span style="font-size:11px;opacity:0.8">Google Mapsで</span>
+    <div class="save-circle">📍</div>
+    <span>保存する</span>
   </div>
-</section>
+</div>
 
-<!-- ===== 札幌 ===== -->
-<section class="area-section" id="sapporo">
-  <div class="area-header">
-    <span class="area-badge" style="background:#1976d2">札幌</span>
-    <h2>Sapporo</h2>
-    <span class="area-count">9 スポット</span>
+<!-- AREA NAV -->
+<div class="area-nav">
+  <div class="area-nav-label">
+    <span></span>
+    エリアから探す
   </div>
-  <div class="card-grid">
+  <a href="#" onclick="filterArea('furano');return false;">富良野・美瑛<small>4スポット</small></a>
+  <a href="#" onclick="filterArea('sapporo');return false;">札幌<small>9スポット</small></a>
+  <a href="#" onclick="filterArea('otaru');return false;">小樽<small>3スポット</small></a>
+  <a href="#" onclick="filterArea('hakodate');return false;">函館<small>4スポット</small></a>
+  <a href="#" onclick="filterArea('others');return false;">積丹・白老・道東<small>3スポット</small></a>
+  <div class="area-nav-more">すべてのエリアを見る &rsaquo;</div>
+</div>
 
-    <div class="card">
-      <div class="card-photo">🥞</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>円山ぱんけーき</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E5%86%86%E5%B1%B1%E3%81%B1%E3%82%93%E3%81%91%E3%83%BC%E3%81%8D/data=!4m2!3m1!1s0x5f0b29ecbe8f0e39:0xd5e61247b0ae8cc5" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
+<!-- MAIN -->
+<div class="main-container" id="spots">
+  <div class="section-header">
+    <div class="section-title-wrap">
+      <h2>おすすめスポット</h2>
+      <p>北海道を旅して出会った、心に残る場所たち。</p>
     </div>
-
-    <div class="card">
-      <div class="card-photo">☕</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>cafe Rain × bistro Dim.</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/cafe+Rain+%C3%97+bistro+Dim./data=!4m2!3m1!1s0x5f0b29c06b3b407d:0x236882e51923ef5b" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
+    <div id="filter-theme" style="display:flex;gap:0;border-bottom:1px solid var(--border);align-self:flex-end;">
     </div>
-
-    <div class="card">
-      <div class="card-photo">📚</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>ランプライトブックスカフェ 札幌</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%83%A9%E3%83%B3%E3%83%97%E3%83%A9%E3%82%A4%E3%83%88%E3%83%96%E3%83%83%E3%82%AF%E3%82%B9%E3%82%AB%E3%83%95%E3%82%A7%E6%9C%AD%E5%B9%8C/data=!4m2!3m1!1s0x5f0b29a715f5928d:0x68495818337f414d" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🍻</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-bar">バー</span>
-        </div>
-        <h3>Bunny's Bar MILLION ススキノ南4条通店</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%81%99%E3%81%99%E3%81%8D%E3%81%AE+%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BA%E3%83%90%E3%83%BC%EF%BD%9CBunny's+Bar+MILLION+%E3%82%B9%E3%82%B9%E3%82%AD%E3%83%8E%E5%8D%974%E6%9D%A1%E9%80%9A%E5%BA%97/data=!4m2!3m1!1s0x5f0b29841acffe57:0xe851a261118fa106" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🐑</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-gourmet">グルメ</span>
-        </div>
-        <h3>63 ロクサン ジンギスカン</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/63+%E3%83%AD%E3%82%AF%E3%82%B5%E3%83%B3+%E3%82%B8%E3%83%B3%E3%82%AE%E3%82%B9%E3%82%AB%E3%83%B3/data=!4m2!3m1!1s0x5f0b29ee87fbb369:0x5745ad24ae3dba2f" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">☕</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>森彦</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E6%A3%AE%E5%BD%A6/data=!4m2!3m1!1s0x5f0b29e9a0bbd7bd:0x482ccc3a7e34c6e1" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">☕</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>花論珈琲茶房 藻岩本店</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E8%8A%B1%E8%AB%96%E7%8F%88%E7%90%B2%E8%8C%B6%E6%88%BF+%E8%97%BB%E5%B2%A9%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x5f0ad59b1b32b70d:0x88715bf480fe9607" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🏠</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>クラノス（kuraノsu）</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%82%AF%E3%83%A9%E3%83%8E%E3%82%B9+(kura%E3%83%8Esu)/data=!4m2!3m1!1s0x5f0adf62e75eaa65:0x81506dc395fac2f7" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🏘</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-sightseeing">観光</span>
-        </div>
-        <h3>野外博物館 北海道開拓の村</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E9%87%8E%E5%A4%96%E5%8D%9A%E7%89%A9%E9%A4%A8+%E5%8C%97%E6%B5%B7%E9%81%93%E9%96%8B%E6%8B%93%E3%81%AE%E6%9D%91/data=!4m2!3m1!1s0x5f0b2ceb651ae381:0xaaa05e70a99cab96" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
   </div>
-</section>
 
-<!-- ===== 小樽 ===== -->
-<section class="area-section" id="otaru">
-  <div class="area-header">
-    <span class="area-badge" style="background:#f57c00">小樽</span>
-    <h2>Otaru</h2>
-    <span class="area-count">3 スポット</span>
+  <!-- FILTER TABS -->
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterCat('all',this)">すべて</button>
+    <button class="filter-tab" onclick="filterCat('自然',this)">自然</button>
+    <button class="filter-tab" onclick="filterCat('カフェ',this)">カフェ</button>
+    <button class="filter-tab" onclick="filterCat('グルメ',this)">グルメ</button>
+    <button class="filter-tab" onclick="filterCat('観光',this)">観光・文化</button>
+    <button class="filter-tab" onclick="filterCat('バー',this)">バー</button>
   </div>
-  <div class="card-grid">
 
-    <div class="card">
-      <div class="card-photo">⚓</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-sightseeing">観光</span>
+  <!-- SPOT GRID -->
+  <div class="spot-grid" id="spotGrid">
+
+    <!-- 富良野・美瑛 -->
+    <div class="spot-card" data-area="furano" data-cat="カフェ">
+      <div class="spot-photo">
+        🌿
+        <span class="spot-area-tag">富良野・美瑛</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>cafe ゴリョウ</h3>
+          <p class="spot-sub">美瑛 · カフェ</p>
+          <p class="spot-desc"></p>
         </div>
-        <h3>海賊船</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E6%B5%B7%E8%B3%8A%E8%88%B9/data=!4m2!3m1!1s0x5f0b20ae9c908d89:0x64124797746644e" target="_blank">
+        <a class="maps-btn" href="https://www.google.com/maps/place/cafe%E3%82%B4%E3%83%AA%E3%83%A7%E3%82%A6(cafe+Goryo)/data=!4m2!3m1!1s0x5f735236f7b1b235:0x26cfb28a77d70ee4" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
+          Google Mapsで<br>保存する
         </a>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-photo">🍶</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-sightseeing">観光</span>
+    <div class="spot-card" data-area="furano" data-cat="自然">
+      <div class="spot-photo">
+        💧
+        <span class="spot-area-tag">富良野・美瑛</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>白金 青い池</h3>
+          <p class="spot-sub">美瑛 · 自然</p>
+          <p class="spot-desc"></p>
         </div>
-        <h3>北一硝子 北一ホール</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E5%8C%97%E4%B8%80%E7%A1%9D%E5%AD%90+%E5%8C%97%E4%B8%80%E3%83%9B%E3%83%BC%E3%83%AB/data=!4m2!3m1!1s0x5f0ae05aa0308a65:0xab245387363eb3e4" target="_blank">
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E7%99%BD%E9%87%91%E9%9D%92%E3%81%84%E6%B1%A0/data=!4m2!3m1!1s0x5f0ccc62de222a6f:0x4cd181f9f4b779e" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
+          Google Mapsで<br>保存する
         </a>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-photo">🌊</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
+    <div class="spot-card" data-area="furano" data-cat="グルメ">
+      <div class="spot-photo">
+        🍞
+        <span class="spot-area-tag">富良野・美瑛</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>あるうのぱいん</h3>
+          <p class="spot-sub">富良野 · グルメ</p>
+          <p class="spot-desc"></p>
         </div>
-        <h3>カフェ 崖の上</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%82%AB%E3%83%95%E3%82%A7%E5%B4%96%E3%81%AE%E4%B8%8A/data=!4m2!3m1!1s0x5f0ad189de083259:0x39ed085ffc43ff4d" target="_blank">
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%81%82%E3%82%8B%E3%81%86%E3%81%AE%E3%81%B1%E3%81%84%E3%82%93/data=!4m2!3m1!1s0x5f0cc5d22ae18b1d:0xab61be11a683a425" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
+          Google Mapsで<br>保存する
         </a>
       </div>
     </div>
 
+    <div class="spot-card" data-area="furano" data-cat="グルメ">
+      <div class="spot-photo">
+        🍛
+        <span class="spot-area-tag">富良野・美瑛</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>カレーのふらのや</h3>
+          <p class="spot-sub">富良野 · グルメ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%82%AB%E3%83%AC%E3%83%BC%E3%81%AE%E3%81%B5%E3%82%89%E3%81%AE%E3%82%84/data=!4m2!3m1!1s0x5f734d66ab0bd70d:0x5244e9ad107af63f" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <!-- 札幌 -->
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        🥞
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>円山ぱんけーき</h3>
+          <p class="spot-sub">札幌・円山 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E5%86%86%E5%B1%B1%E3%81%B1%E3%82%93%E3%81%91%E3%83%BC%E3%81%8D/data=!4m2!3m1!1s0x5f0b29ecbe8f0e39:0xd5e61247b0ae8cc5" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        ☕
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>cafe Rain × bistro Dim.</h3>
+          <p class="spot-sub">札幌 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/cafe+Rain+%C3%97+bistro+Dim./data=!4m2!3m1!1s0x5f0b29c06b3b407d:0x236882e51923ef5b" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        📚
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>ランプライトブックスカフェ</h3>
+          <p class="spot-sub">札幌 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%83%A9%E3%83%B3%E3%83%97%E3%83%A9%E3%82%A4%E3%83%88%E3%83%96%E3%83%83%E3%82%AF%E3%82%B9%E3%82%AB%E3%83%95%E3%82%A7%E6%9C%AD%E5%B9%8C/data=!4m2!3m1!1s0x5f0b29a715f5928d:0x68495818337f414d" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="バー">
+      <div class="spot-photo">
+        🍻
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>Bunny's Bar MILLION</h3>
+          <p class="spot-sub">すすきの · バー</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%81%99%E3%81%99%E3%81%8D%E3%81%AE+%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BA%E3%83%90%E3%83%BC%EF%BD%9CBunny's+Bar+MILLION+%E3%82%B9%E3%82%B9%E3%82%AD%E3%83%8E%E5%8D%974%E6%9D%A1%E9%80%9A%E5%BA%97/data=!4m2!3m1!1s0x5f0b29841acffe57:0xe851a261118fa106" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="グルメ">
+      <div class="spot-photo">
+        🐑
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>63 ロクサン ジンギスカン</h3>
+          <p class="spot-sub">札幌 · グルメ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/63+%E3%83%AD%E3%82%AF%E3%82%B5%E3%83%B3+%E3%82%B8%E3%83%B3%E3%82%AE%E3%82%B9%E3%82%AB%E3%83%B3/data=!4m2!3m1!1s0x5f0b29ee87fbb369:0x5745ad24ae3dba2f" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        ☕
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>森彦</h3>
+          <p class="spot-sub">札幌・円山 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E6%A3%AE%E5%BD%A6/data=!4m2!3m1!1s0x5f0b29e9a0bbd7bd:0x482ccc3a7e34c6e1" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        ☕
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>花論珈琲茶房 藻岩本店</h3>
+          <p class="spot-sub">札幌・藻岩 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E8%8A%B1%E8%AB%96%E7%8F%88%E7%90%B2%E8%8C%B6%E6%88%BF+%E8%97%BB%E5%B2%A9%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x5f0ad59b1b32b70d:0x88715bf480fe9607" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="カフェ">
+      <div class="spot-photo">
+        🏠
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>クラノス</h3>
+          <p class="spot-sub">札幌 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%82%AF%E3%83%A9%E3%83%8E%E3%82%B9+(kura%E3%83%8Esu)/data=!4m2!3m1!1s0x5f0adf62e75eaa65:0x81506dc395fac2f7" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="sapporo" data-cat="観光">
+      <div class="spot-photo">
+        🏘
+        <span class="spot-area-tag">札幌</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>北海道開拓の村</h3>
+          <p class="spot-sub">札幌・野幌 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E9%87%8E%E5%A4%96%E5%8D%9A%E7%89%A9%E9%A4%A8+%E5%8C%97%E6%B5%B7%E9%81%93%E9%96%8B%E6%8B%93%E3%81%AE%E6%9D%91/data=!4m2!3m1!1s0x5f0b2ceb651ae381:0xaaa05e70a99cab96" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <!-- 小樽 -->
+    <div class="spot-card" data-area="otaru" data-cat="観光">
+      <div class="spot-photo">
+        ⚓
+        <span class="spot-area-tag">小樽</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>海賊船</h3>
+          <p class="spot-sub">小樽 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E6%B5%B7%E8%B3%8A%E8%88%B9/data=!4m2!3m1!1s0x5f0b20ae9c908d89:0x64124797746644e" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="otaru" data-cat="観光">
+      <div class="spot-photo">
+        🍶
+        <span class="spot-area-tag">小樽</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>北一硝子 北一ホール</h3>
+          <p class="spot-sub">小樽・堺町 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E5%8C%97%E4%B8%80%E7%A1%9D%E5%AD%90+%E5%8C%97%E4%B8%80%E3%83%9B%E3%83%BC%E3%83%AB/data=!4m2!3m1!1s0x5f0ae05aa0308a65:0xab245387363eb3e4" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="otaru" data-cat="カフェ">
+      <div class="spot-photo">
+        🌊
+        <span class="spot-area-tag">小樽</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>カフェ 崖の上</h3>
+          <p class="spot-sub">小樽 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%82%AB%E3%83%95%E3%82%A7%E5%B4%96%E3%81%AE%E4%B8%8A/data=!4m2!3m1!1s0x5f0ad189de083259:0x39ed085ffc43ff4d" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <!-- 函館 -->
+    <div class="spot-card" data-area="hakodate" data-cat="観光">
+      <div class="spot-photo">
+        ⛪
+        <span class="spot-area-tag">函館</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>函館ハリストス正教会</h3>
+          <p class="spot-sub">函館・元町 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E5%87%BD%E9%A4%A8%E3%83%8F%E3%83%AA%E3%82%B9%E3%83%88%E3%82%B9%E6%AD%A3%E6%95%99%E4%BC%9A/data=!4m2!3m1!1s0x5f9ef3aa0f2dfae1:0x365794e6cb416cba" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="hakodate" data-cat="グルメ">
+      <div class="spot-photo">
+        🍔
+        <span class="spot-area-tag">函館</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>ラッキーピエロ ベイエリア本店</h3>
+          <p class="spot-sub">函館・ベイエリア · グルメ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E3%83%94%E3%82%A8%E3%83%AD+%E3%83%99%E3%82%A4%E3%82%A8%E3%83%AA%E3%82%A2%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x5f9ef3a850a9fc2f:0xf5aee68b0a01f03b" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="hakodate" data-cat="カフェ">
+      <div class="spot-photo">
+        🌅
+        <span class="spot-area-tag">函館</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>ティーショップ 夕日</h3>
+          <p class="spot-sub">函館 · カフェ</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%E5%A4%95%E6%97%A5/data=!4m2!3m1!1s0x5f9ef24d66285b55:0x62d528af63fb3562" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="hakodate" data-cat="自然">
+      <div class="spot-photo">
+        🐄
+        <span class="spot-area-tag">函館</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>城岱牧場 展望台</h3>
+          <p class="spot-sub">七飯 · 自然</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E5%9F%8E%E5%B2%B1%E7%89%A7%E5%A0%B4%E5%B1%95%E6%9C%9B%E5%8F%B0/data=!4m2!3m1!1s0x5f9e57b5078a316b:0x9763aa32a1fcba63" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <!-- その他 -->
+    <div class="spot-card" data-area="others" data-cat="自然">
+      <div class="spot-photo">
+        🪨
+        <span class="spot-area-tag">積丹</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>神威岩</h3>
+          <p class="spot-sub">積丹 · 自然</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E7%A5%9E%E5%A8%81%E5%B2%A9/data=!4m2!3m1!1s0x5f0a5d4b3c25f9b7:0x7f7d1e52a09bc63c" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="others" data-cat="観光">
+      <div class="spot-photo">
+        🏛
+        <span class="spot-area-tag">白老</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>ウポポイ</h3>
+          <p class="spot-sub">白老 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E3%82%A6%E3%83%9D%E3%83%9D%E3%82%A4/data=!4m2!3m1!1s0x5f756b0cc75cc137:0x6976e94f685887fb" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+    <div class="spot-card" data-area="others" data-cat="観光">
+      <div class="spot-photo">
+        📖
+        <span class="spot-area-tag">中札内</span>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-card-text">
+          <h3>六花文庫</h3>
+          <p class="spot-sub">中札内 · 観光</p>
+          <p class="spot-desc"></p>
+        </div>
+        <a class="maps-btn" href="https://www.google.com/maps/place/%E5%85%AD%E8%8A%B1%E6%96%87%E5%BA%AB/data=!4m2!3m1!1s0x5f0ad571ff927bbd:0x5960dc0e5fd918b4" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Google Mapsで<br>保存する
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /spot-grid -->
+
+  <!-- SHOW MORE -->
+  <div class="show-more-wrap" id="showMoreWrap">
+    <button class="show-more-btn" onclick="showAll()">すべてのスポットを見る &rsaquo;</button>
   </div>
-</section>
 
-<!-- ===== 函館 ===== -->
-<section class="area-section" id="hakodate">
-  <div class="area-header">
-    <span class="area-badge" style="background:#c62828">函館</span>
-    <h2>Hakodate</h2>
-    <span class="area-count">4 スポット</span>
+  <!-- MAP SECTION -->
+  <div class="map-section" id="map">
+    <div class="map-info">
+      <h3><span></span>マップで見る</h3>
+      <p>すべてのスポットをGoogle マイマップで確認できます。</p>
+      <a class="map-open-btn" href="https://www.google.com/maps/d/viewer?mid=1vsWlEGDsUDqMNE5-BG7kpFVxyHuLSnc" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        マップを開く
+      </a>
+    </div>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1vsWlEGDsUDqMNE5-BG7kpFVxyHuLSnc&ehbc=2E312F" allowfullscreen></iframe>
+    </div>
   </div>
-  <div class="card-grid">
 
-    <div class="card">
-      <div class="card-photo">⛪</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-sightseeing">観光</span>
-        </div>
-        <h3>函館ハリストス正教会</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E5%87%BD%E9%A4%A8%E3%83%8F%E3%83%AA%E3%82%B9%E3%83%88%E3%82%B9%E6%AD%A3%E6%95%99%E4%BC%9A/data=!4m2!3m1!1s0x5f9ef3aa0f2dfae1:0x365794e6cb416cba" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
+</div><!-- /main-container -->
 
-    <div class="card">
-      <div class="card-photo">🍔</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-gourmet">グルメ</span>
-        </div>
-        <h3>ラッキーピエロ ベイエリア本店</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E3%83%94%E3%82%A8%E3%83%AD+%E3%83%99%E3%82%A4%E3%82%A8%E3%83%AA%E3%82%A2%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x5f9ef3a850a9fc2f:0xf5aee68b0a01f03b" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🌅</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-cafe">カフェ</span>
-        </div>
-        <h3>ティーショップ 夕日</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%E5%A4%95%E6%97%A5/data=!4m2!3m1!1s0x5f9ef24d66285b55:0x62d528af63fb3562" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🐄</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-nature">景色・自然</span>
-        </div>
-        <h3>城岱牧場 展望台</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E5%9F%8E%E5%B2%B1%E7%89%A7%E5%A0%B4%E5%B1%95%E6%9C%9B%E5%8F%B0/data=!4m2!3m1!1s0x5f9e57b5078a316b:0x9763aa32a1fcba63" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== その他 ===== -->
-<section class="area-section" id="others">
-  <div class="area-header">
-    <span class="area-badge" style="background:#7b1fa2">その他エリア</span>
-    <h2>Others</h2>
-    <span class="area-count">3 スポット</span>
-  </div>
-  <div class="card-grid">
-
-    <div class="card">
-      <div class="card-photo">🪨</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-nature">景色・自然</span>
-          <span style="font-size:10px;color:#999">積丹</span>
-        </div>
-        <h3>神威岩</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E7%A5%9E%E5%A8%81%E5%B2%A9/data=!4m2!3m1!1s0x5f0a5d4b3c25f9b7:0x7f7d1e52a09bc63c" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">🏛</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-sightseeing">観光</span>
-          <span style="font-size:10px;color:#999">白老</span>
-        </div>
-        <h3>ウポポイ</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E3%82%A6%E3%83%9D%E3%83%9D%E3%82%A4/data=!4m2!3m1!1s0x5f756b0cc75cc137:0x6976e94f685887fb" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-photo">📖</div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="cat-badge cat-shopping">ショッピング</span>
-          <span style="font-size:10px;color:#999">中札内</span>
-        </div>
-        <h3>六花文庫</h3>
-        <p class="card-comment"></p>
-        <a class="map-btn" href="https://www.google.com/maps/place/%E5%85%AD%E8%8A%B1%E6%96%87%E5%BA%AB/data=!4m2!3m1!1s0x5f0ad571ff927bbd:0x5960dc0e5fd918b4" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Google Maps で見る
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- ===== MAP ===== -->
-<section id="map" style="max-width:1100px;margin:0 auto;padding:48px 20px 20px;">
-  <div class="area-header">
-    <span class="area-badge" style="background:#1a4a3a">マップ</span>
-    <h2>Map</h2>
-  </div>
-  <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.12);">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1vsWlEGDsUDqMNE5-BG7kpFVxyHuLSnc&ehbc=2E312F" width="100%" height="500" style="border:0;display:block;" allowfullscreen></iframe>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <strong>北海道 おすすめスポット</strong><br>
-  個人的な旅のメモです。最新情報は各店舗・施設にご確認ください。
+  <div class="logo">HOKKAIDO<br>PLACES</div>
+  <p>個人的な旅のメモです。最新情報は各店舗・施設にご確認ください。</p>
 </footer>
+
+<script>
+  // --- FILTER BY CATEGORY ---
+  function filterCat(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.spot-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    // Reset area filter
+    currentArea = null;
+  }
+
+  // --- FILTER BY AREA ---
+  let currentArea = null;
+  function filterArea(area) {
+    currentArea = area;
+    // Reset category tabs
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.filter-tab').classList.add('active');
+    document.querySelectorAll('.spot-card').forEach(card => {
+      card.classList.toggle('hidden', card.dataset.area !== area);
+    });
+    document.getElementById('spots').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // --- SHOW ALL ---
+  function showAll() {
+    document.querySelectorAll('.spot-card').forEach(c => c.classList.remove('hidden'));
+    document.getElementById('showMoreWrap').style.display = 'none';
+  }
+
+  // Initially show only first 6 cards
+  const cards = document.querySelectorAll('.spot-card');
+  cards.forEach((c, i) => { if (i >= 6) c.classList.add('hidden'); });
+</script>
 
 </body>
 </html>
