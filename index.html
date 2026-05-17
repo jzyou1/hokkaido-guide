@@ -310,599 +310,424 @@
       <!-- FILTER BY AREA -->
       <div class="filter-tabs">
         <button class="ftab active" onclick="filterArea('all',this)">すべて</button>
-        <button class="ftab" onclick="filterArea('furano',this)">富良野・美瑛</button>
-        <button class="ftab" onclick="filterArea('sapporo',this)">札幌</button>
-        <button class="ftab" onclick="filterArea('otaru',this)">小樽</button>
         <button class="ftab" onclick="filterArea('hakodate',this)">函館</button>
+        <button class="ftab" onclick="filterArea('sapporo-otaru',this)">札幌・小樽</button>
+        <button class="ftab" onclick="filterArea('furano',this)">富良野・美瑛</button>
         <button class="ftab" onclick="filterArea('others',this)">その他</button>
       </div>
 
       <!-- SPOT LIST -->
       <div id="spotList">
-        <!-- 件数表示 -->
         <p style="font-size:11px;color:#aaa;margin-bottom:12px;" id="countLabel">全28スポット</p>
-
-        <!-- 富良野・美瑛 -->
-        <div class="area-header" data-area-head="furano">
-          <h3>富良野・美瑛</h3>
-          <span>9スポット</span>
-        </div>
-        <div class="spot-item" data-cat="カフェ" data-area="furano">
-          <div class="spot-num num-furano">1</div>
-          <div class="spot-photo">☕</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">リーズカフェ</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">いったことないんだけど行ってみたいカフェ</p>
-            <p class="spot-meta">富良野</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.6248927,142.4031007" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="furano">
-          <div class="spot-num num-furano">2</div>
-          <div class="spot-photo">🍽️</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">あるうのぱいん</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">いったことないんだけど行ってみたいカフェ</p>
-            <p class="spot-meta">富良野</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.5988925,142.4511368" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="furano">
-          <div class="spot-num num-furano">3</div>
-          <div class="spot-photo">🍛</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">カレーのふらのや</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">北海道は野菜がおいしい！ここのカレー屋さんの野菜もおいしかった！</p>
-            <p class="spot-meta">富良野</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.3429869,142.3825976" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="furano">
-          <div class="spot-num num-furano">4</div>
-          <div class="spot-photo">🍜</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">唯我独尊</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">（いったことないんだけど行ってみたい）るーるる！っていえばお替りできるとか。</p>
-            <p class="spot-meta">富良野</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.344792,142.3894602" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="furano">
-          <div class="spot-num num-furano">5</div>
-          <div class="spot-photo">☕</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">cafe ゴリョウ</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">ハスカップジュースがおいしい。ハスカップは北海道あたりにしかないベリー。</p>
-            <p class="spot-meta">美瑛</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.300546,142.3748015" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="自然" data-area="furano">
-          <div class="spot-num num-furano">6</div>
-          <div class="spot-photo">💧</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">白金 青い池</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
-            <p class="spot-desc"></p>
-            <p class="spot-meta">美瑛</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.4934738,142.6142144" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="自然" data-area="furano">
-          <div class="spot-num num-furano">7</div>
-          <div class="spot-photo">🏔️</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">第一展望台</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
-            <p class="spot-desc">日本で唯一森林限界（木が生える限界）の上まで行けるロープウェイ。7月は高山植物の時期でぎり見れるかも。</p>
-            <p class="spot-meta">大雪山</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.6626496,142.8270434" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="furano">
-          <div class="spot-num num-furano">8</div>
-          <div class="spot-photo">🍽️</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">畑のとなりのフレンチ Café Good Life</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">旭山動物園からも近かったかな。カフェで利用できた。</p>
-            <p class="spot-meta">美瑛</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.7907979,142.4956674" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="自然" data-area="furano">
-          <div class="spot-num num-furano">9</div>
-          <div class="spot-photo">🛣️</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">ジェットコースターの路</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
-            <p class="spot-desc">直線でバーッと突っ切る北海道を象徴するような感じの道</p>
-            <p class="spot-meta">富良野</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.520775,142.4307412" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <!-- 札幌 -->
-        <div class="area-header" data-area-head="sapporo">
-          <h3>札幌</h3>
-          <span>9スポット</span>
-        </div>
-        <div class="spot-item" data-cat="グルメ" data-area="sapporo">
-          <div class="spot-num num-sapporo">10</div>
-          <div class="spot-photo">🐑</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">63 ロクサン ジンギスカン</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">ジンギスカン食べるならここが一番のおすすめ！道民のおすすめ含め５カ所ぐらい行ったけどここが一番と思う。</p>
-            <p class="spot-meta">札幌・すすきの</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.053933,141.3546331" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="観光" data-area="sapporo">
-          <div class="spot-num num-sapporo">11</div>
-          <div class="spot-photo">🏘️</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">野外博物館 北海道開拓の村</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
-            <p class="spot-desc">北海道の歴史が学べる。ニシン漁の糞で買い木造船や明治時代の建物群がある。昔の警官のコスプレシブオジさんかっこよかったな。</p>
-            <p class="spot-meta">札幌・野幌</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0482239,141.4969955" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="自然" data-area="sapporo">
-          <div class="spot-num num-sapporo">12</div>
-          <div class="spot-photo">🌄</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">藻岩山 山頂展望台</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
-            <p class="spot-desc">札幌市民の裏山。冬は足にチェーンスパイクはいて登山する人多数。札幌の広さを実感できる。</p>
-            <p class="spot-meta">札幌・藻岩山</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.022197,141.3223737" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="sapporo">
-          <div class="spot-num num-sapporo">13</div>
-          <div class="spot-photo">☕</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">森彦</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">おされカフェ。ちょっとせまめで人気で混むかも。</p>
-            <p class="spot-meta">札幌・円山</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0533077,141.3186089" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="sapporo">
-          <div class="spot-num num-sapporo">14</div>
-          <div class="spot-photo">☕</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">cafe Rain × bistro Dim.</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc"></p>
-            <p class="spot-meta">札幌・円山</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0529674,141.3277523" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="sapporo">
-          <div class="spot-num num-sapporo">15</div>
-          <div class="spot-photo">🥞</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">円山ぱんけーき</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">（いったことないけど行ってみたいカフェ）</p>
-            <p class="spot-meta">札幌・円山</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0528457,141.3282149" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="観光" data-area="sapporo">
-          <div class="spot-num num-sapporo">16</div>
-          <div class="spot-photo">📖</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">六花文庫</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
-            <p class="spot-desc">簡単な図書館。紅葉の時期は外壁に広がるツタの紅葉が美しい。夏はどうなんだろ。</p>
-            <p class="spot-meta">札幌・中札内</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.9970609,141.3537218" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="sapporo">
-          <div class="spot-num num-sapporo">17</div>
-          <div class="spot-photo">🌊</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">カフェ崖の上</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">文字通り崖の上に立っているカフェで高いところが苦手な人は怖いかも？札幌から少し遠い。</p>
-            <p class="spot-meta">小樽近郊</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.9729715,141.1611121" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="sapporo">
-          <div class="spot-num num-sapporo">18</div>
-          <div class="spot-photo">☕</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">花論珈琲茶房 藻岩本店</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">住宅街にあるカフェ。ちょっと大人なカフェだけど窓から見える木々と店内の雰囲気がいい。</p>
-            <p class="spot-meta">札幌・藻岩</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.009295,141.3400669" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <!-- 小樽 -->
-        <div class="area-header" data-area-head="otaru">
-          <h3>小樽</h3>
-          <span>3スポット</span>
-        </div>
-        <div class="spot-item" data-cat="観光" data-area="otaru">
-          <div class="spot-num num-otaru">19</div>
-          <div class="spot-photo">🏮</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">北一硝子 北一ホール</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
-            <p class="spot-desc">昔のランプが大量に店内にあり、毎朝つけるのも大変そう。迫力あるよ。</p>
-            <p class="spot-meta">小樽・堺町</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.192268,141.007334" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="カフェ" data-area="otaru">
-          <div class="spot-num num-otaru">20</div>
-          <div class="spot-photo">🏠</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">クラノス</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
-            <p class="spot-desc">夫婦でコツコツ庭を作ってたらしく、すごくおしゃれ。崖の上の土地だから海も見渡せ素敵です。予約が必要です。</p>
-            <p class="spot-meta">小樽</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.1545136,141.1251063" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="otaru">
-          <div class="spot-num num-otaru">21</div>
-          <div class="spot-photo">🦐</div>
-          <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">海賊船</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
-            <p class="spot-desc">こっちのラーメンにはまず入っていないであろう貝などが新鮮。味はまずまずだった記憶だが北海道っぽくはある。</p>
-            <p class="spot-meta">小樽</p>
-          </div>
-          <div class="spot-actions">
-            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
-            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.143942,141.159604" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
 
         <!-- 函館 -->
         <div class="area-header" data-area-head="hakodate">
-          <h3>函館</h3>
-          <span>4スポット</span>
+          <h3>函館</h3><span>4スポット</span>
         </div>
-        <div class="spot-item" data-cat="カフェ" data-area="hakodate">
-          <div class="spot-num num-hakodate">22</div>
+        <div class="spot-item" data-area="hakodate">
           <div class="spot-photo">🌅</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">ティーショップ 夕日</span>
-              <span class="cat-pill cat-カフェ">カフェ</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">ティーショップ 夕日</span></div>
             <p class="spot-desc">夕日の見えるカフェ。もともとかなり古い時代の防疫所だったらしくそこを改修したところ。</p>
             <p class="spot-meta">函館</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=41.7664207,140.6954174" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
-
-        <div class="spot-item" data-cat="観光" data-area="hakodate">
-          <div class="spot-num num-hakodate">23</div>
+        <div class="spot-item" data-area="hakodate">
           <div class="spot-photo">⛪</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">大三坂</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">大三坂</span></div>
             <p class="spot-desc">寺とカトリックと正教会といろんな宗教の建物が隣接する函館の寛容さを象徴するエリア。</p>
             <p class="spot-meta">函館・元町</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=41.7630139,140.7131324" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
-
-        <div class="spot-item" data-cat="グルメ" data-area="hakodate">
-          <div class="spot-num num-hakodate">24</div>
+        <div class="spot-item" data-area="hakodate">
           <div class="spot-photo">🍔</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">ラッキーピエロ ベイエリア本店</span>
-              <span class="cat-pill cat-グルメ">グルメ</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">ラッキーピエロ ベイエリア本店</span></div>
             <p class="spot-desc">ここらにしかないというハンバーガーチェーン店。10年前はボリュームがあっておいしかったよ。</p>
             <p class="spot-meta">函館・ベイエリア</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=41.765756,140.7149328" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
-
-        <div class="spot-item" data-cat="自然" data-area="hakodate">
-          <div class="spot-num num-hakodate">25</div>
+        <div class="spot-item" data-area="hakodate">
           <div class="spot-photo">🐄</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">城岱牧場 展望台</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">城岱牧場 展望台</span></div>
             <p class="spot-desc">眼下に函館を望む。あそこに今から行くよー、あっこから来たんだねーって感じな場所。牛乳アイスもおいしい。</p>
             <p class="spot-meta">七飯</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=41.9224375,140.7119213" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- 札幌・小樽 -->
+        <div class="area-header" data-area-head="sapporo-otaru">
+          <h3>札幌・小樽</h3><span>12スポット</span>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">🐑</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">63 ロクサン ジンギスカン</span></div>
+            <p class="spot-desc">ジンギスカン食べるならここが一番のおすすめ！道民のおすすめ含め５カ所ぐらい行ったけどここが一番と思う。</p>
+            <p class="spot-meta">札幌・すすきの</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.053933,141.3546331" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">🏘️</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">野外博物館 北海道開拓の村</span></div>
+            <p class="spot-desc">北海道の歴史が学べる。ニシン漁の糞で買い木造船や明治時代の建物群がある。昔の警官のコスプレシブオジさんかっこよかったな。</p>
+            <p class="spot-meta">札幌・野幌</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0482239,141.4969955" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">🌄</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">藻岩山 山頂展望台</span></div>
+            <p class="spot-desc">札幌市民の裏山。冬は足にチェーンスパイクはいて登山する人多数。札幌の広さを実感できる。</p>
+            <p class="spot-meta">札幌・藻岩山</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.022197,141.3223737" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">☕</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">森彦</span></div>
+            <p class="spot-desc">おされカフェ。ちょっとせまめで人気で混むかも。</p>
+            <p class="spot-meta">札幌・円山</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0533077,141.3186089" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">☕</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">cafe Rain × bistro Dim.</span></div>
+            <p class="spot-desc"></p>
+            <p class="spot-meta">札幌・円山</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0529674,141.3277523" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">🥞</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">円山ぱんけーき</span></div>
+            <p class="spot-desc">（いったことないけど行ってみたいカフェ）</p>
+            <p class="spot-meta">札幌・円山</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.0528457,141.3282149" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">📖</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">六花文庫</span></div>
+            <p class="spot-desc">簡単な図書館。紅葉の時期は外壁に広がるツタの紅葉が美しい。夏はどうなんだろ。</p>
+            <p class="spot-meta">札幌・中札内</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.9970609,141.3537218" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="sapporo">
+          <div class="spot-photo">☕</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">花論珈琲茶房 藻岩本店</span></div>
+            <p class="spot-desc">住宅街にあるカフェ。ちょっと大人なカフェだけど窓から見える木々と店内の雰囲気がいい。</p>
+            <p class="spot-meta">札幌・藻岩</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.009295,141.3400669" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="otaru">
+          <div class="spot-photo">🏮</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">北一硝子 北一ホール</span></div>
+            <p class="spot-desc">昔のランプが大量に店内にあり、毎朝つけるのも大変そう。迫力あるよ。</p>
+            <p class="spot-meta">小樽・堺町</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.192268,141.007334" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="otaru">
+          <div class="spot-photo">🏠</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">クラノス</span></div>
+            <p class="spot-desc">夫婦でコツコツ庭を作ってたらしく、すごくおしゃれ。崖の上の土地だから海も見渡せ素敵です。予約が必要です。</p>
+            <p class="spot-meta">小樽</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.1545136,141.1251063" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="otaru">
+          <div class="spot-photo">🌊</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">カフェ崖の上</span></div>
+            <p class="spot-desc">文字通り崖の上に立っているカフェで高いところが苦手な人は怖いかも？札幌から少し遠い。</p>
+            <p class="spot-meta">小樽近郊</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.9729715,141.1611121" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="otaru">
+          <div class="spot-photo">🦐</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">海賊船</span></div>
+            <p class="spot-desc">こっちのラーメンにはまず入っていないであろう貝などが新鮮。味はまずまずだった記憶だが北海道っぽくはある。</p>
+            <p class="spot-meta">小樽</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.143942,141.159604" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- 富良野・美瑛 -->
+        <div class="area-header" data-area-head="furano">
+          <h3>富良野・美瑛</h3><span>9スポット</span>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">☕</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">リーズカフェ</span></div>
+            <p class="spot-desc">いったことないんだけど行ってみたいカフェ</p>
+            <p class="spot-meta">富良野</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.6248927,142.4031007" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🍽️</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">あるうのぱいん</span></div>
+            <p class="spot-desc">いったことないんだけど行ってみたいカフェ</p>
+            <p class="spot-meta">富良野</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.5988925,142.4511368" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🍛</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">カレーのふらのや</span></div>
+            <p class="spot-desc">北海道は野菜がおいしい！ここのカレー屋さんの野菜もおいしかった！</p>
+            <p class="spot-meta">富良野</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.3429869,142.3825976" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🍜</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">唯我独尊</span></div>
+            <p class="spot-desc">（いったことないんだけど行ってみたい）るーるる！っていえばお替りできるとか。</p>
+            <p class="spot-meta">富良野</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.344792,142.3894602" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">☕</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">cafe ゴリョウ</span></div>
+            <p class="spot-desc">ハスカップジュースがおいしい。ハスカップは北海道あたりにしかないベリー。</p>
+            <p class="spot-meta">美瑛</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.300546,142.3748015" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">💧</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">白金 青い池</span></div>
+            <p class="spot-desc"></p>
+            <p class="spot-meta">美瑛</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.4934738,142.6142144" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🏔️</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">第一展望台</span></div>
+            <p class="spot-desc">日本で唯一森林限界（木が生える限界）の上まで行けるロープウェイ。7月は高山植物の時期でぎり見れるかも。</p>
+            <p class="spot-meta">大雪山</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.6626496,142.8270434" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🍽️</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">畑のとなりのフレンチ Café Good Life</span></div>
+            <p class="spot-desc">旭山動物園からも近かったかな。カフェで利用できた。</p>
+            <p class="spot-meta">美瑛</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.7907979,142.4956674" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
+            </a>
+          </div>
+        </div>
+        <div class="spot-item" data-area="furano">
+          <div class="spot-photo">🛣️</div>
+          <div class="spot-info">
+            <div class="spot-top"><span class="spot-name">ジェットコースターの路</span></div>
+            <p class="spot-desc">直線でバーッと突っ切る北海道を象徴するような感じの道</p>
+            <p class="spot-meta">富良野</p>
+          </div>
+          <div class="spot-actions">
+            <button class="fav-icon" onclick="toggleFav(this)">♡</button>
+            <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.520775,142.4307412" target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
 
         <!-- その他 -->
         <div class="area-header" data-area-head="others">
-          <h3>その他エリア</h3>
-          <span>3スポット</span>
+          <h3>その他エリア</h3><span>3スポット</span>
         </div>
-        <div class="spot-item" data-cat="自然" data-area="others">
-          <div class="spot-num num-others">26</div>
+        <div class="spot-item" data-area="others">
           <div class="spot-photo">🪨</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">神威岬</span>
-              <span class="cat-pill cat-自然">自然</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">神威岬</span></div>
             <p class="spot-desc">晴れていれば積丹ブルーが望める</p>
             <p class="spot-meta">積丹</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=43.3335323,140.3463829" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
-
-        <div class="spot-item" data-cat="観光" data-area="others">
-          <div class="spot-num num-others">27</div>
+        <div class="spot-item" data-area="others">
           <div class="spot-photo">🏔️</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">ニセコ町</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">ニセコ町</span></div>
             <p class="spot-desc">外国人によりバブルな町。ラーメン一杯3000円ってところもあるらしい。近くに蝦夷富士と言われる羊蹄山がそびえてます。</p>
             <p class="spot-meta">ニセコ</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.8047856,140.6874494" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
-
-        <div class="spot-item" data-cat="観光" data-area="others">
-          <div class="spot-num num-others">28</div>
+        <div class="spot-item" data-area="others">
           <div class="spot-photo">🏛️</div>
           <div class="spot-info">
-            <div class="spot-top">
-              <span class="spot-name">国立アイヌ民族博物館</span>
-              <span class="cat-pill cat-観光">観光</span>
-            </div>
+            <div class="spot-top"><span class="spot-name">国立アイヌ民族博物館</span></div>
             <p class="spot-desc">アイヌ文化を体験できる。国立だからでっかい。踊りやコタンの生活を見れるほか、体験も充実していてアイヌの刺繍や弓を放ったりもできる。職員の皆さんはみんなアイヌ名があって由来を聞くのも面白いよ。</p>
             <p class="spot-meta">白老</p>
           </div>
           <div class="spot-actions">
             <button class="fav-icon" onclick="toggleFav(this)">♡</button>
             <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=42.5596359,141.3659969" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Maps
             </a>
           </div>
         </div>
@@ -918,14 +743,16 @@
     document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.spot-item').forEach(item => {
-      item.classList.toggle('hidden', area !== 'all' && item.dataset.area !== area);
+      let show = area === 'all'
+        || (area === 'sapporo-otaru' && (item.dataset.area === 'sapporo' || item.dataset.area === 'otaru'))
+        || item.dataset.area === area;
+      item.classList.toggle('hidden', !show);
     });
     document.querySelectorAll('.area-header').forEach(h => {
-      if (area === 'all') {
-        h.classList.remove('hidden');
-      } else {
-        h.classList.toggle('hidden', h.dataset.areaHead !== area);
-      }
+      let show = area === 'all'
+        || (area === 'sapporo-otaru' && h.dataset.areaHead === 'sapporo-otaru')
+        || h.dataset.areaHead === area;
+      h.classList.toggle('hidden', !show);
     });
   }
 
