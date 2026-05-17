@@ -99,36 +99,6 @@
       border: 0;
       display: block;
     }
-    .map-footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 8px 16px;
-      font-size: 11px;
-      color: var(--gray);
-    }
-    .map-footer strong {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--black);
-      margin-right: 12px;
-    }
-    .route-list {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-    .route-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-    }
-    .route-line {
-      width: 24px;
-      height: 3px;
-      border-radius: 2px;
-    }
 
     /* ===== LIST PANEL ===== */
     .list-panel {
@@ -156,17 +126,12 @@
       margin-bottom: 4px;
     }
     .area-header.hidden { display: none; }
-    .area-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
     .area-header h3 {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 900;
     }
     .area-header span {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--gray);
     }
 
@@ -214,18 +179,7 @@
     .spot-item:hover { background: var(--light); }
     .spot-item.hidden { display: none; }
 
-    .spot-num {
-      flex-shrink: 0;
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 2px;
-    }
+    .spot-num { display: none; }
     .spot-photo {
       flex-shrink: 0;
       width: 80px; height: 80px;
@@ -315,12 +269,6 @@
     .maps-link:hover { background: var(--light); color: var(--black); }
     .maps-link svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* ===== AREA COLOR CODES ===== */
-    .num-furano   { background: #22c55e; }
-    .num-sapporo  { background: #3b82f6; }
-    .num-otaru    { background: #f97316; }
-    .num-hakodate { background: #ef4444; }
-    .num-others   { background: #a855f7; }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
@@ -347,27 +295,6 @@
     <div class="map-iframe-wrap">
       <iframe src="https://www.google.com/maps/d/embed?mid=1vsWlEGDsUDqMNE5-BG7kpFVxyHuLSnc&ehbc=2E312F" allowfullscreen></iframe>
     </div>
-    <div class="map-footer">
-      <strong>移動時間の目安（車）</strong>
-      <div class="route-list">
-        <div class="route-item">
-          <div class="route-line" style="background:#3b82f6"></div>
-          <span>札幌 → 小樽 約40分</span>
-        </div>
-        <div class="route-item">
-          <div class="route-line" style="background:#22c55e"></div>
-          <span>札幌 → 富良野 約2時間</span>
-        </div>
-        <div class="route-item">
-          <div class="route-line" style="background:#ef4444"></div>
-          <span>札幌 → 函館 約3.5時間</span>
-        </div>
-        <div class="route-item">
-          <div class="route-line" style="background:#a855f7"></div>
-          <span>小樽 → 積丹 約1時間</span>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- RIGHT: LIST -->
@@ -378,11 +305,11 @@
       <!-- FILTER BY AREA -->
       <div class="filter-tabs">
         <button class="ftab active" onclick="filterArea('all',this)">すべて</button>
-        <button class="ftab" onclick="filterArea('furano',this)">🟢 富良野・美瑛</button>
-        <button class="ftab" onclick="filterArea('sapporo',this)">🔵 札幌</button>
-        <button class="ftab" onclick="filterArea('otaru',this)">🟠 小樽</button>
-        <button class="ftab" onclick="filterArea('hakodate',this)">🔴 函館</button>
-        <button class="ftab" onclick="filterArea('others',this)">🟣 その他</button>
+        <button class="ftab" onclick="filterArea('furano',this)">富良野・美瑛</button>
+        <button class="ftab" onclick="filterArea('sapporo',this)">札幌</button>
+        <button class="ftab" onclick="filterArea('otaru',this)">小樽</button>
+        <button class="ftab" onclick="filterArea('hakodate',this)">函館</button>
+        <button class="ftab" onclick="filterArea('others',this)">その他</button>
       </div>
 
       <!-- SPOT LIST -->
@@ -392,7 +319,6 @@
 
         <!-- 富良野・美瑛 -->
         <div class="area-header" data-area-head="furano">
-          <div class="area-dot" style="background:#22c55e"></div>
           <h3>富良野・美瑛</h3>
           <span>9スポット</span>
         </div>
@@ -578,7 +504,6 @@
 
         <!-- 札幌 -->
         <div class="area-header" data-area-head="sapporo">
-          <div class="area-dot" style="background:#3b82f6"></div>
           <h3>札幌</h3>
           <span>9スポット</span>
         </div>
@@ -764,7 +689,6 @@
 
         <!-- 小樽 -->
         <div class="area-header" data-area-head="otaru">
-          <div class="area-dot" style="background:#f97316"></div>
           <h3>小樽</h3>
           <span>3スポット</span>
         </div>
@@ -830,7 +754,6 @@
 
         <!-- 函館 -->
         <div class="area-header" data-area-head="hakodate">
-          <div class="area-dot" style="background:#ef4444"></div>
           <h3>函館</h3>
           <span>4スポット</span>
         </div>
@@ -916,7 +839,6 @@
 
         <!-- その他 -->
         <div class="area-header" data-area-head="others">
-          <div class="area-dot" style="background:#a855f7"></div>
           <h3>その他エリア</h3>
           <span>3スポット</span>
         </div>
