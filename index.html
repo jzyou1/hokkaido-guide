@@ -74,16 +74,19 @@
     }
     .site-nav .fav-btn::before { content: '♡'; font-size: 15px; }
 
-    /* ===== STACK LAYOUT (map top, list bottom) ===== */
+    /* ===== STACK LAYOUT (map top sticky, list scrolls) ===== */
     .split {
-      display: block;
-      padding-top: var(--header-h);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - var(--header-h));
+      margin-top: var(--header-h);
     }
 
     /* ===== MAP PANEL ===== */
     .map-panel {
+      flex-shrink: 0;
       width: 100%;
-      height: 55vh;
+      height: 48vh;
       position: relative;
       background: #e8edf0;
       display: flex;
@@ -102,6 +105,8 @@
 
     /* ===== LIST PANEL ===== */
     .list-panel {
+      flex: 1;
+      overflow-y: auto;
       background: #fff;
     }
     .list-inner {
@@ -272,7 +277,7 @@
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .map-panel { height: 42vh; min-height: 260px; }
+      .map-panel { height: 30vh; min-height: 200px; }
       .list-inner { padding: 16px 14px 50px; }
     }
   </style>
