@@ -74,67 +74,21 @@
     }
     .site-nav .fav-btn::before { content: '♡'; font-size: 15px; }
 
-    /* ===== SPLIT LAYOUT ===== */
+    /* ===== STACK LAYOUT (map top, list bottom) ===== */
     .split {
-      display: flex;
-      height: 100vh;
+      display: block;
       padding-top: var(--header-h);
     }
 
-    /* ===== LEFT: MAP PANEL ===== */
+    /* ===== MAP PANEL ===== */
     .map-panel {
-      flex: 0 0 58%;
-      position: sticky;
-      top: var(--header-h);
-      height: calc(100vh - var(--header-h));
+      width: 100%;
+      height: 55vh;
+      position: relative;
       background: #e8edf0;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-    }
-    .map-header {
-      position: absolute;
-      top: 16px; left: 16px;
-      z-index: 10;
-      background: #fff;
-      border-radius: 8px;
-      padding: 12px 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      max-width: 260px;
-    }
-    .map-header h2 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .map-header p {
-      font-size: 11px;
-      color: var(--gray);
-    }
-    .map-toggle {
-      position: absolute;
-      top: 16px; right: 16px;
-      z-index: 10;
-      display: flex;
-      background: #fff;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-    }
-    .map-toggle button {
-      padding: 7px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-family: inherit;
-      color: var(--gray);
-      transition: all 0.15s;
-    }
-    .map-toggle button.active {
-      background: var(--black);
-      color: #fff;
     }
     .map-iframe-wrap {
       flex: 1;
@@ -148,7 +102,7 @@
     .map-footer {
       background: #fff;
       border-top: 1px solid var(--border);
-      padding: 10px 16px;
+      padding: 8px 16px;
       font-size: 11px;
       color: var(--gray);
     }
@@ -160,9 +114,9 @@
     }
     .route-list {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .route-item {
       display: flex;
@@ -176,19 +130,44 @@
       border-radius: 2px;
     }
 
-    /* ===== RIGHT: LIST PANEL ===== */
+    /* ===== LIST PANEL ===== */
     .list-panel {
-      flex: 1;
-      overflow-y: auto;
       background: #fff;
     }
     .list-inner {
-      padding: 20px 20px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
     }
     .list-title {
       font-size: 17px;
       font-weight: 700;
       margin-bottom: 14px;
+    }
+
+    /* AREA SECTION HEADER */
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 0 8px;
+      margin-top: 8px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 4px;
+    }
+    .area-header.hidden { display: none; }
+    .area-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .area-header h3 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .area-header span {
+      font-size: 11px;
+      color: var(--gray);
     }
 
     /* FILTER TABS */
@@ -345,15 +324,8 @@
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .split { flex-direction: column; height: auto; }
-      .map-panel {
-        position: relative;
-        top: 0;
-        flex: none;
-        height: 50vw;
-        min-height: 240px;
-      }
-      .site-nav a:not(.fav-btn) { display: none; }
+      .map-panel { height: 52vw; min-height: 220px; }
+      .list-inner { padding: 16px 14px 50px; }
     }
   </style>
 </head>
@@ -365,27 +337,13 @@
     <strong>Hokkaido Trip</strong>
     <span>北海道をもっと楽しむ旅ガイド</span>
   </div>
-  <nav class="site-nav">
-    <a href="#" onclick="showArea(null);return false;">エリアから探す</a>
-    <a href="#">モデルコース</a>
-    <a href="#">このサイトについて</a>
-    <a href="#" class="fav-btn">お気に入り</a>
-  </nav>
 </header>
 
 <!-- SPLIT LAYOUT -->
 <div class="split">
 
-  <!-- LEFT: MAP -->
+  <!-- MAP -->
   <div class="map-panel">
-    <div class="map-header">
-      <h2>地図から行きたい場所を選んでみよう</h2>
-      <p>スポットをクリックすると詳細が表示されます</p>
-    </div>
-    <div class="map-toggle">
-      <button class="active">地図</button>
-      <button>衛星写真</button>
-    </div>
     <div class="map-iframe-wrap">
       <iframe src="https://www.google.com/maps/d/embed?mid=1vsWlEGDsUDqMNE5-BG7kpFVxyHuLSnc&ehbc=2E312F" allowfullscreen></iframe>
     </div>
@@ -417,14 +375,14 @@
     <div class="list-inner">
       <div class="list-title">おすすめスポット一覧</div>
 
-      <!-- FILTER -->
+      <!-- FILTER BY AREA -->
       <div class="filter-tabs">
-        <button class="ftab active" onclick="filterCat('all',this)">すべて</button>
-        <button class="ftab" onclick="filterCat('自然',this)">自然</button>
-        <button class="ftab" onclick="filterCat('観光',this)">観光・街歩き</button>
-        <button class="ftab" onclick="filterCat('グルメ',this)">グルメ</button>
-        <button class="ftab" onclick="filterCat('カフェ',this)">カフェ</button>
-        <button class="ftab" onclick="filterCat('バー',this)">バー</button>
+        <button class="ftab active" onclick="filterArea('all',this)">すべて</button>
+        <button class="ftab" onclick="filterArea('furano',this)">🟢 富良野・美瑛</button>
+        <button class="ftab" onclick="filterArea('sapporo',this)">🔵 札幌</button>
+        <button class="ftab" onclick="filterArea('otaru',this)">🟠 小樽</button>
+        <button class="ftab" onclick="filterArea('hakodate',this)">🔴 函館</button>
+        <button class="ftab" onclick="filterArea('others',this)">🟣 その他</button>
       </div>
 
       <!-- SPOT LIST -->
@@ -433,6 +391,11 @@
         <p style="font-size:11px;color:#aaa;margin-bottom:12px;" id="countLabel">全28スポット</p>
 
         <!-- 富良野・美瑛 -->
+        <div class="area-header" data-area-head="furano">
+          <div class="area-dot" style="background:#22c55e"></div>
+          <h3>富良野・美瑛</h3>
+          <span>9スポット</span>
+        </div>
         <div class="spot-item" data-cat="カフェ" data-area="furano">
           <div class="spot-num num-furano">1</div>
           <div class="spot-photo">☕</div>
@@ -614,6 +577,11 @@
         </div>
 
         <!-- 札幌 -->
+        <div class="area-header" data-area-head="sapporo">
+          <div class="area-dot" style="background:#3b82f6"></div>
+          <h3>札幌</h3>
+          <span>9スポット</span>
+        </div>
         <div class="spot-item" data-cat="グルメ" data-area="sapporo">
           <div class="spot-num num-sapporo">10</div>
           <div class="spot-photo">🐑</div>
@@ -795,6 +763,11 @@
         </div>
 
         <!-- 小樽 -->
+        <div class="area-header" data-area-head="otaru">
+          <div class="area-dot" style="background:#f97316"></div>
+          <h3>小樽</h3>
+          <span>3スポット</span>
+        </div>
         <div class="spot-item" data-cat="観光" data-area="otaru">
           <div class="spot-num num-otaru">19</div>
           <div class="spot-photo">🏮</div>
@@ -856,6 +829,11 @@
         </div>
 
         <!-- 函館 -->
+        <div class="area-header" data-area-head="hakodate">
+          <div class="area-dot" style="background:#ef4444"></div>
+          <h3>函館</h3>
+          <span>4スポット</span>
+        </div>
         <div class="spot-item" data-cat="カフェ" data-area="hakodate">
           <div class="spot-num num-hakodate">22</div>
           <div class="spot-photo">🌅</div>
@@ -937,6 +915,11 @@
         </div>
 
         <!-- その他 -->
+        <div class="area-header" data-area-head="others">
+          <div class="area-dot" style="background:#a855f7"></div>
+          <h3>その他エリア</h3>
+          <span>3スポット</span>
+        </div>
         <div class="spot-item" data-cat="自然" data-area="others">
           <div class="spot-num num-others">26</div>
           <div class="spot-photo">🪨</div>
@@ -1003,21 +986,19 @@
 </div><!-- /split -->
 
 <script>
-  // FILTER BY CATEGORY
-  function filterCat(cat, btn) {
+  // FILTER BY AREA
+  function filterArea(area, btn) {
     document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.spot-item').forEach(item => {
-      item.classList.toggle('hidden', cat !== 'all' && item.dataset.cat !== cat);
+      item.classList.toggle('hidden', area !== 'all' && item.dataset.area !== area);
     });
-  }
-
-  // FILTER BY AREA
-  function showArea(area) {
-    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-    document.querySelector('.ftab').classList.add('active');
-    document.querySelectorAll('.spot-item').forEach(item => {
-      item.classList.toggle('hidden', area !== null && item.dataset.area !== area);
+    document.querySelectorAll('.area-header').forEach(h => {
+      if (area === 'all') {
+        h.classList.remove('hidden');
+      } else {
+        h.classList.toggle('hidden', h.dataset.areaHead !== area);
+      }
     });
   }
 
