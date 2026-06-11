@@ -186,7 +186,7 @@
 
     .spot-num { display: none; }
     .spot-photo { display: none; }
-    .spot-info { flex: 1; min-width: 0; }
+    .spot-info { flex: 1; min-width: 0; overflow-wrap: break-word; }
     .spot-top {
       display: flex;
       align-items: center;
@@ -196,9 +196,7 @@
     .spot-name {
       font-size: 14px;
       font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      word-break: break-all;
     }
     .cat-pill {
       flex-shrink: 0;
@@ -218,10 +216,6 @@
       color: var(--gray);
       line-height: 1.6;
       margin-bottom: 6px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
     .spot-meta {
       font-size: 11px;
